@@ -13,9 +13,9 @@ const posicaoSuperiorInicial = 70,
           topAvatar,
           leftAvatar;
         
-    imgAvatar.style.position = "absolute";
-    imgAvatar.style.top = posicaoSuperior + "px";
-    imgAvatar.style.left = posicaoEsquerda + "px";
+        imgAvatar.style.position = "absolute";
+        imgAvatar.style.top = posicaoSuperior + "px";
+        imgAvatar.style.left = posicaoEsquerda + "px";
 
         function getTopStyle(elementToGet) {
             let styleElement = window.getComputedStyle(elementToGet);
@@ -110,4 +110,33 @@ const posicaoSuperiorInicial = 70,
             }
             console.log("Angulo do avatr depois: ", anguloAvatar + "deg");
         }    
+
+        function slideImagens() {
+
+        }
+
+        const slides = document.querySelectorAll(".slide");
+        let currentSlide = 0;
+
+        function showSlide(index) {
+        slides.forEach((slide, i) => {
+            if (i === index) {
+      slide.style.transform = "translateX(0)";
+        } else {
+      slide.style.transform = "translateX(-100%)";
+    }
+  });
+}
+
+        function nextSlide() {
+  currentSlide = (currentSlide + 1) % slides.length;
+  showSlide(currentSlide);
+}
+
+        function prevSlide() {
+  currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+  showSlide(currentSlide);
+}
+
+showSlide(currentSlide);
      
