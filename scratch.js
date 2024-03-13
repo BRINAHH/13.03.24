@@ -112,7 +112,9 @@ const posicaoSuperiorInicial = 70,
         }    
 
         function slideImagens() {
-
+            var img = document.getElementById("imgAvatar")
+            img.style.transition = "margin-left  100ms is ease-in-out"
+            img.style.marginLeft = "100px"
         }
 
         const slides = document.querySelectorAll(".slide");
