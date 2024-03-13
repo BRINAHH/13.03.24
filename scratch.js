@@ -5,30 +5,30 @@ const posicaoSuperiorInicial = 70,
       anguloInicial = 0,
       anguloFinal = 500,
       imgAvatar = document.getElementById('imgAvatar'),
-      styleAvatar = window.getComputedStyle(imgAvatar),
+      styleAvatar = window.getComputerStyle(imgAvatar),
       txtPixel = document.getElementById("txtPixel");
 
-    var posicaoSuperior = 70,
-          posicaoEsquerda = 70,
-          topAvatar,
-          leftAvatar;
+var posicaoSuperior = 70,
+        posicaoEsquerda = 70,
+        topAvatar,
+        leftAvatar;
         
         imgAvatar.style.position = "absolute";
         imgAvatar.style.top = posicaoSuperior + "px";
         imgAvatar.style.left = posicaoEsquerda + "px";
 
         function getTopStyle(elementToGet) {
-            let styleElement = window.getComputedStyle(elementToGet);
+            var styleElement = window.getComputedStyle(elementToGet);
             return parent(styleElement.getPropertyValue('top').replace("px",''));
         }
 
         function getLeftStyle(elementToGet) {
-            let styleElement = window.getComputedStyle(elementToGet);
+            var styleElement = window.getComputedStyle(elementToGet);
             return parseInt(styleElement.getPropertyValue('laft').replace("px",''));
         }
 
         function getLeftStyle(elementToGet) {
-            let styleElement = window.getComputedStyle(elementToGet);
+            var styleElement = window.getComputedStyle(elementToGet);
             return parseInt(styleElement.getPropertyValue('laft').replace("px",''));
         }
 
@@ -53,13 +53,13 @@ const posicaoSuperiorInicial = 70,
             console.clear();
             console.log("Posição do avatar à direita antes: ", imgAvatar.style.left);
             leftAvatar = getLeftStyle(imgAvatar);
-            if (leftAvatar < posicaoDireitaFinal) {
+            if (leftAvatar < posicaoEsquerdaFinal) {
                 posicaoDireita += parseInt(txtPixel.value);
-            if (posicaoDireita > posicaoDireitaFinal) {
+            if (posicaoDireita > posicaoEsquerdaFinal) {
             }
-                imgAvatar.style.left = posicaoDireita + "px";
+                imgAvatar.style.left = posicaoEsquerda + "px";
             } else {
-                console.error("Ops! Chegou ao limite e nao e possivel mais mover para direita. Tente outro botao");
+            console.error("Ops! Chegou ao limite e nao e possivel mais mover para direita. Tente outro botao");
             }
             console.log("Posicao de avatar a direita", imgAvatar.style.left);
         }
@@ -70,7 +70,7 @@ const posicaoSuperiorInicial = 70,
             topAvatar = getLeftStyle(imgAvatar);
             if (topAvatar > posicaoSuperiorInicial) {
                 posicaoSuperior -= parent(txtPixel.value);
-            if (posicaoDireita < posicaoDireitaFinal) {
+            if (posicaoDireita < posicaoEsquerdaFinal) {
                 posicaoSuperior = posicaoSuperiorInicial;
             }
                 imgAvatar.style.top = posicaoSuperior + "px";
@@ -98,7 +98,7 @@ const posicaoSuperiorInicial = 70,
 
         function girarHorario() {
             console.clear();
-            console.log("Angulo do avatar antes: ", anguloAvatar + "deg");
+            console.log("Angulo do avatar antes: ", AnguloAvatar + "deg");
             if (anguloAvatar < anguloFinal) {
                 anguloAvatar += parseInt(txtPixel.value);
                 if (anguloAvatar > anguloFinal) {
@@ -121,24 +121,23 @@ const posicaoSuperiorInicial = 70,
         let currentSlide = 0;
 
         function showSlide(index) {
-        slides.forEach((slide, i) => {
+            slides.forEach((slide, i) => {
             if (i === index) {
-      slide.style.transform = "translateX(0)";
+            slide.style.transform = "translateX(0)";
         } else {
-      slide.style.transform = "translateX(-100%)";
-    }
-  });
-}
+
+            slide.style.transform = "translateX(-100%)";
+
+        } }); }
 
         function nextSlide() {
-  currentSlide = (currentSlide + 1) % slides.length;
-  showSlide(currentSlide);
-}
+           currentSlide = (currentSlide + 1) % slides.length;
+           showSlide(currentSlide);
+        }
 
         function prevSlide() {
-  currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-  showSlide(currentSlide);
-}
-
-showSlide(currentSlide);
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            showSlide(currentSlide);
+        }
+            showSlide(currentSlide);
      
